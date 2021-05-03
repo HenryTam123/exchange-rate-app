@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 const HistoricalEx = ({ data }) => {
-    const [currentSymbol, setCurrentSymbol] = useState('')
+    const [currentSymbol, setCurrentSymbol] = useState('AE')
     const [chosenDate, setChosenDate] = useState('')
     const [historicalData, setHistoricalData] = useState([])
     const APP_ID = `07a49e8e9c7e4d95984ce0c20fed2eea`
@@ -21,6 +21,7 @@ const HistoricalEx = ({ data }) => {
                 <p>From {data.base} To </p>
                 <form>
                     <select onChange={(e) => setCurrentSymbol(e.target.value)} value={currentSymbol} required>
+                        <option value="">select currency here</option>
                         {Object.entries(data.rates).map(([symbol, rate], index) => (
                             <option key={index} value={symbol}>{symbol}</option>
                         ))}

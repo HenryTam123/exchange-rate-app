@@ -18,7 +18,9 @@ const LatestEx = ({ data }) => {
             <div className="input-field">
                 <p>From {data.base} To </p>
                 <form>
+
                     <select onChange={(e) => setCurrentSymbol(e.target.value)} value={currentSymbol}>
+                        <option value="">select currency here</option>
                         {Object.entries(data.rates).map(([symbol, rate], index) => (
                             <option key={index} value={symbol}>{symbol}</option>
                         ))}
