@@ -36,10 +36,11 @@ const HistoricalEx = ({ data }) => {
                 </form>
             </div>
             {currentSymbol !== '' && historicalData.length !== 0 ?
-                <>
+                historicalData.rates[currentSymbol] ? <>
                     <p className="result">1 {historicalData.base} = {historicalData.rates[currentSymbol]} {currentSymbol}</p>
                     <p className="result">1 {currentSymbol} = {(1 / historicalData.rates[currentSymbol]).toPrecision(5)} {historicalData.base}</p>
-                </>
+                </> : <p>No Record</p>
+
                 : ' '}
 
         </div>
